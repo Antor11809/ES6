@@ -172,8 +172,10 @@ console.log(finduserbyid(users,2))
 // console.log(getcardtotal(cart))
 
 let getexpensive = (cart, minprice)=>{
-    let total = cart.filter(product => product.price >= minprice).map(product=>{
-       return product.price*product.quant; }).reduce((accumulator, currentvalue)=> accumulator + currentvalue ,0)
+    let total = cart.filter(product => product.price >= minprice)
+    .map(product=>{
+       return product.price*product.quant; })
+       .reduce((accumulator, currentvalue)=> accumulator + currentvalue ,0)
 return total;
 }
 
