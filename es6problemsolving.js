@@ -107,3 +107,114 @@ const products = [
     {name : "pen", price : 200, quant : 1}
 ]
 console.log(cartcalc(products))
+
+                //  MODULE 19!!!!!
+
+  let discountapply = (prices, discount)=>{
+    let discountprice = prices.map((elem, ind, arr)=>{
+        console.log(ind, elem)
+    const discountedprice = elem - (elem * discount / 100)
+    return discountedprice;
+    })
+  return discountprice;
+  } 
+  let prod = [340, 540, 560, 560, 340, 340]
+  console.log(discountapply(prod, 50))
+
+
+
+let passingstudents = (students, threshold) =>{
+ let filteredstudents = students.filter(student =>{
+    console.log(student)
+    if(student.marks > threshold){
+        return true;
+    } else {
+        return false;
+    }
+ })
+ return filteredstudents;
+  }
+let students = [
+ { name: "Antor", marks: 85 },
+ { name: "Rakib", marks: 72 },
+ { name: "Sakib", marks: 91 },
+ { name: "Nabil", marks: 68 },
+ ]
+  console.log(passingstudents (students, 90) )
+
+
+let finduserbyid = (user, id)=>{
+let expecteduser = user.find(user=>{
+    return user.id === id
+})
+console.log(expecteduser, "paisi")
+}
+let users = [
+    {id: 1, name: "ABCD"},
+    {id: 2, name: "ABCDE"},
+    {id: 3, name: "ABCDEF"}
+]
+console.log(finduserbyid(users,2))
+
+
+
+// let getcardtotal = (cart)=>{
+// let total = cart.reduce((accumulator, elem)=>{
+//     console.log(accumulator, elem)
+//     return accumulator + (elem.price * elem.quant)
+// }, 0)
+// return total;
+// }
+// let cart = [
+//     {name : "book", price : 100, quant : 2},
+//     {name : "pen", price : 200, quant : 1}
+// ]
+// console.log(getcardtotal(cart))
+
+let getexpensive = (cart, minprice)=>{
+    let total = cart.filter(product => product.price >= minprice).map(product=>{
+       return product.price*product.quant; }).reduce((accumulator, currentvalue)=> accumulator + currentvalue ,0)
+return total;
+}
+
+let cart = [
+    {name : "book", price : 100, quant : 2},
+    {name : "Mini-fan", price : 200, quant : 1},
+     {name : "pen", price : 20, quant : 2},
+     {name : "peen", price : 2067, quant : 24},
+]
+
+console.log(getexpensive(cart, 10))
+
+
+
+let lifecounter = () =>{
+let lives = 3;
+
+
+    return () =>{
+        if(lives > 0){
+            lives--;
+        }
+    return lives;
+    }
+}
+
+const antorlifeupdate = lifecounter()
+console.log(antorlifeupdate())
+console.log(antorlifeupdate())
+console.log(antorlifeupdate())
+console.log(antorlifeupdate())
+
+let shortdescending = (nums)=>{
+    console.log(nums)
+    const nums2 = [...nums]
+    const sortednums = nums.sort((a,b) =>{
+        return b-a;
+    })
+     console.log(sortednums)
+
+}
+   
+let numbers = [1, 2, 3, 4,5, 6, 7, 8]
+console.log(shortdescending(numbers))
