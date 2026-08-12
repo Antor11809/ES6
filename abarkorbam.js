@@ -56,3 +56,68 @@ for (let score of scores){
 let ed = [80, 65, 90, 75]
 
 console.log(total(ed))
+
+function studentIntroduction(student) {
+    if(typeof student !== "object"){
+        return "object na eita"
+    }
+    if(!"name"in student || !"age" in student || !"course" in student){
+        return "Missing items"
+    }
+return `My name is ${student.name}.I am ${student.age} years old.I am learning ${student.course}.`;
+}
+
+let introduction = {name:"Rafi",age:18,course:"JavaScript"}
+console.log(studentIntroduction(introduction))
+
+
+function filterActiveUsers(users) {
+    if(!Array.isArray(users)){
+        return "array na"
+    }
+    if(users.length === 0){
+        return "Invalid"
+    }
+return users.filter(function(user){
+    return user.isActive === true;
+});
+}
+let us = [{name:"A", isActive:true},{name:"B", isActive:false}]
+
+console.log(filterActiveUsers(us))
+
+
+
+function hashtags(words){
+    let wordgula = words.split(" ")
+    let HashtagCount = 0;
+    let longestTag = "";
+    for(let word of wordgula){
+        if(word.startsWith("#")){
+            HashtagCount++
+            let tag = word.slice(1);
+            if(tag.length > longestTag.length){
+              longestTag = tag 
+            }
+        }
+    }
+    return{
+        HashtagCount: HashtagCount,
+        longestTag: longestTag
+    }
+}
+
+let m = "Loving this weather today #sunnyyyyy #vibes #weekend"
+console.log(hashtags(m))
+
+
+function employeeIntroduction(employee) {
+    if(typeof employee !== "object" || employee === null){
+        return "Invalid"
+    }
+if(!("name" in employee) || !("age"in employee) || !("position" in employee)){
+    return "Invalid"
+}
+    return `My name is ${employee.name}. I am ${employee.age} years old. I work as a ${employee.position}.`
+}
+

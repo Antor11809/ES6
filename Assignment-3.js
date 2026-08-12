@@ -42,7 +42,6 @@ function countHashtags (caption) {
             }
         }
     }
-
     return {
         hashtagCount: hashtagCount,
         longestTag: longestTag
