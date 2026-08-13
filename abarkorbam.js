@@ -121,3 +121,45 @@ if(!("name" in employee) || !("age"in employee) || !("position" in employee)){
     return `My name is ${employee.name}. I am ${employee.age} years old. I work as a ${employee.position}.`
 }
 
+function calculateBonusPrice(prices) {
+    let plus = prices.map(function(price){
+return price + 20;
+    })
+    return plus.reduce(function(sum, price){
+    return sum + price;
+}, 0)
+}
+
+
+function generateLeaderboard(students) {
+    if(!Array.isArray(students)){
+        return "invalid 1"
+    }
+    if(students.length === 0){
+        return "invalid 2"
+    }
+    for(let student of students){
+         if(typeof student.score != "number"){
+        return "invalid 3"
+            if(!(student.name || !("score" in student))){
+        return "invalid 4"
+    }
+    }
+    }
+    let passed = students.filter(function(student){
+        return student.score >= 70;
+    })
+
+    // i did something wrong here 
+    .map(function(student){
+       return student.name.toUpperCase();
+
+    })
+    return qualified.slice(0, 3);
+}
+
+console.log(generateLeaderboard([
+    { name: "Rafi", score: 80 },
+    { name: "Karim", score: 65 },
+    { name: "Sakib", score: 90 }
+]));
